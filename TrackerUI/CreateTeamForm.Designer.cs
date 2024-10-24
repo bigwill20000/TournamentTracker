@@ -45,8 +45,8 @@
             lastNameLabel = new System.Windows.Forms.Label();
             firstNameValue = new System.Windows.Forms.TextBox();
             firstNameLabel = new System.Windows.Forms.Label();
-            tournamentPlayersListBox = new System.Windows.Forms.ListBox();
-            deleteSelectedMemberButton = new System.Windows.Forms.Button();
+            teamMembersListBox = new System.Windows.Forms.ListBox();
+            removeSelectedMemberButton = new System.Windows.Forms.Button();
             createTeamButton = new System.Windows.Forms.Button();
             createTeamLabel = new System.Windows.Forms.Label();
             addNewMemberGroupBox.SuspendLayout();
@@ -95,6 +95,7 @@
             addMemberButton.TabIndex = 31;
             addMemberButton.Text = "Add Member";
             addMemberButton.UseVisualStyleBackColor = true;
+            addMemberButton.Click += addMemberButton_Click;
             // 
             // selectTeamMemberDropDown
             // 
@@ -226,29 +227,31 @@
             firstNameLabel.TabIndex = 9;
             firstNameLabel.Text = "First Name";
             // 
-            // tournamentPlayersListBox
+            // teamMembersListBox
             // 
-            tournamentPlayersListBox.FormattingEnabled = true;
-            tournamentPlayersListBox.ItemHeight = 37;
-            tournamentPlayersListBox.Location = new System.Drawing.Point(519, 137);
-            tournamentPlayersListBox.Name = "tournamentPlayersListBox";
-            tournamentPlayersListBox.Size = new System.Drawing.Size(399, 596);
-            tournamentPlayersListBox.TabIndex = 33;
+            teamMembersListBox.FormattingEnabled = true;
+            teamMembersListBox.ItemHeight = 37;
+            teamMembersListBox.Location = new System.Drawing.Point(519, 137);
+            teamMembersListBox.Name = "teamMembersListBox";
+            teamMembersListBox.Size = new System.Drawing.Size(399, 596);
+            teamMembersListBox.TabIndex = 33;
+            teamMembersListBox.SelectedIndexChanged += teamMemberListBox_SelectedIndexChanged;
             // 
-            // deleteSelectedMemberButton
+            // removeSelectedMemberButton
             // 
-            deleteSelectedMemberButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            deleteSelectedMemberButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            deleteSelectedMemberButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            deleteSelectedMemberButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            deleteSelectedMemberButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            deleteSelectedMemberButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            deleteSelectedMemberButton.Location = new System.Drawing.Point(939, 364);
-            deleteSelectedMemberButton.Name = "deleteSelectedMemberButton";
-            deleteSelectedMemberButton.Size = new System.Drawing.Size(134, 101);
-            deleteSelectedMemberButton.TabIndex = 34;
-            deleteSelectedMemberButton.Text = "Delete Selected";
-            deleteSelectedMemberButton.UseVisualStyleBackColor = true;
+            removeSelectedMemberButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            removeSelectedMemberButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            removeSelectedMemberButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            removeSelectedMemberButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            removeSelectedMemberButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            removeSelectedMemberButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            removeSelectedMemberButton.Location = new System.Drawing.Point(939, 364);
+            removeSelectedMemberButton.Name = "removeSelectedMemberButton";
+            removeSelectedMemberButton.Size = new System.Drawing.Size(134, 101);
+            removeSelectedMemberButton.TabIndex = 34;
+            removeSelectedMemberButton.Text = "Remove Selected";
+            removeSelectedMemberButton.UseVisualStyleBackColor = true;
+            removeSelectedMemberButton.Click += removeSelectedMemberButton_Click;
             // 
             // createTeamButton
             // 
@@ -272,8 +275,8 @@
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(1085, 851);
             Controls.Add(createTeamButton);
-            Controls.Add(deleteSelectedMemberButton);
-            Controls.Add(tournamentPlayersListBox);
+            Controls.Add(removeSelectedMemberButton);
+            Controls.Add(teamMembersListBox);
             Controls.Add(addNewMemberGroupBox);
             Controls.Add(addMemberButton);
             Controls.Add(selectTeamMemberDropDown);
@@ -308,8 +311,8 @@
         private System.Windows.Forms.TextBox emailValue;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Button createMemberButton;
-        private System.Windows.Forms.ListBox tournamentPlayersListBox;
-        private System.Windows.Forms.Button deleteSelectedMemberButton;
+        private System.Windows.Forms.ListBox teamMembersListBox;
+        private System.Windows.Forms.Button removeSelectedMemberButton;
         private System.Windows.Forms.Button createTeamButton;
     }
 }
